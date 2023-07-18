@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.subway.mapper.ProductMapper">
+
+    <select id="getProductList" resultType="map">
+        select
+            a.pro_id,
+            a.pro_name_kor,
+            a.pro_name_eng,
+            a.pro_contents,
+            a.pro_image_id,
+            a.pro_cate_id,
+            b.img_file_up_path
+        from tbl_subway_product a,
+             tbl_subway_image b,
+             tbl_subway_category c
+        where a.pro_image_id = b.img_id
+          and c.cat_id = a.pro_cate_id
+    </select>
+
+    <select id="getProductCateList" resultType="map">
+        select
+                a.pro_id,
+                a.pro_name_kor,
+                a.pro_name_eng,
+                a.pro_contents,
+                a.pro_image_id,
+                a.pro_cate_id,
+                b.img_file_up_path
+            from tbl_subway_product a,
+                 tbl_subway_image b,
+                 tbl_subway_category c
+            where a.pro_image_id = b.img_id
+              and c.cat_id = a.pro_cate_id
+              and c.cat_up_cd = #{pro_cate_id}
+    </select>
+
+    <select id="getProductDetail" resultType="map">
+        select
+                a.pro_id,
+                a.pro_name_kor,
+                a.pro_name_eng,
+                a.pro_contents,
+                a.pro_image_id,
+                a.pro_cate_id,
+                b.img_file_up_path,
+                c.ing_id,
+                c.ing_weight,
+                c.ing_calorie,
+                c.ing_protein,
+                c.ing_protein_percent,
+                c.ing_saturated_fat,
+                c.ing_saturated_fat_percent,
+                c.ing_sugar,
+                c.ing_sugar_percent,
+                c.ing_salt,
+                c.ing_salt_percent
+            from tbl_subway_product a,
+                 tbl_subway_image b,
+                 tbl_subway_ingredient c
+            where a.pro_image_id = b.img_id
+              and c.ing_id = a.pro_ingredient_id
+              and a.pro_id = #{pro_id}
+    </select>
+
+</mapper>
