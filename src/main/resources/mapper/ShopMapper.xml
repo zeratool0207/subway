@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.subway.mapper.ShopMapper">
+
+        <select id="getShopList" resultType="map">
+            select
+                    a.sho_id,
+                    a.sho_name,
+                    a.sho_full_addr,
+<!--                    a.sho_sido,-->
+<!--                    a.sho_sigungu,-->
+                    a.sho_contact,
+                    a.sho_open_time,
+                    a.sho_close_time,
+                    a.sho_breakfast_yn,
+                    a.sho_allDay_yn,
+                    a.sho_app_fast_sum_yn,
+                    a.sho_app_home_sum_yn,
+                    a.sho_delivery_yn,
+                    a.sho_group_order_yn,
+                    a.sho_signature_sum_yn,
+                    a.sho_parking_yn,
+                    a.sho_use_yn
+<!--                    b.sido_name,-->
+<!--                    c.sigungu_name-->
+            from tbl_subway_shop a
+<!--                 (-->
+<!--                    select-->
+<!--                            y.cod_name-->
+<!--                        from tbl_subway_shop z,-->
+<!--                             tbl_subway_code y-->
+<!--                        where z.sho_sido = y.cod_id-->
+<!--                    ) b,-->
+<!--                    (-->
+<!--                        select-->
+<!--                                x.cod_name-->
+<!--                        from tbl_subway_shop z,-->
+<!--                             tbl_subway_code x-->
+<!--                        where z.sho_sigungu = x.cod_id-->
+<!--                    ) c-->
+        </select>
+
+</mapper>
+
+
+
