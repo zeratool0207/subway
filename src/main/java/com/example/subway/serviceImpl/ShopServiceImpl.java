@@ -20,4 +20,11 @@ public class ShopServiceImpl implements ShopService {
     public List<Map<String, Object>> getShopList() {
         return shopMapper.getShopList();
     }
+
+    @Override
+    public Map<String, Object> getShoipView(int sho_id) {
+        return shopMapper.getShopView(sho_id);
+    }
+
+
 }

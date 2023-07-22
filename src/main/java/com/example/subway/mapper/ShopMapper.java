@@ -9,4 +9,6 @@ import java.util.Map;
 public interface ShopMapper {
 
     List<Map<String, Object>> getShopList();
+
+    Map<String,Object> getShopView(int sho_id);
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.subway.mapper.MainMapper">
+
+    <select id="getMenuList" resultType="map">
+        select
+                men_id,
+                men_name,
+                men_up_no,
+                men_disp_no,
+                men_ord,
+                men_url
+            from tbl_subway_menu
+    </select>
+
+    <select id="getProductList" resultType="map">
+        select
+                a.pro_id,
+                a.pro_name_kor,
+                a.pro_name_eng,
+                a.pro_contents,
+                a.pro_cate_id,
+                a.pro_image_id,
+                a.pro_ingredient_id,
+                a.pro_price_status,
+                b.img_id,
+                b.img_file_up_path,
+                c.cat_id,
+                c.cat_nm,
+                c.cat_up_cd,
+                c.cat_use_yn
+            from
+                tbl_subway_product a,
+                tbl_subway_image b,
+                tbl_subway_category c
+            where a.pro_cate_id in( 'B100', 'B101', 'B102', 'B400', 'B401' )
+              and a.pro_image_id = b.img_id
+              and a.pro_cate_id = c.cat_id
+    </select>
+
+    <select id="getNewsList" resultType="map">
+        select
+                nno_id,
+                nno_title,
+                nno_contents,
+                nno_reg_date,
+                nno_news_yn,
+                nno_use_yn,
+                nno_image_use_yn,
+                nno_image_id,
+                nno_image_grp_use_yn,
+                nno_image_grp_id
+            from tbl_subway_newsnoti
+            order by nno_reg_date desc
+            limit 0, 3
+
+    </select>
+
+</mapper>
