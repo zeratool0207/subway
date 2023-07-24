@@ -45,7 +45,6 @@
                 nno_id,
                 nno_title,
                 nno_contents,
-                nno_reg_date,
                 nno_news_yn,
                 nno_use_yn,
                 nno_image_use_yn,
@@ -53,7 +52,7 @@
                 nno_image_grp_use_yn,
                 nno_image_grp_id
             from tbl_subway_newsnoti
-            order by nno_reg_date desc
+            order by nno_id desc
             limit 0, 3
 
     </select>

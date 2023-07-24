@@ -30,12 +30,12 @@ public class MainController {
 
         menuList = mainService.getMenuList();
         productList = mainService.getProductList();
-//        newsList = mainService.getNewsList();
+        newsList = mainService.getNewsList();
 
         Map<String, List<Map<String, Object>>> listWithName = new HashMap<>();
         listWithName.put("menuList",menuList);
         listWithName.put("productList",productList);
-//        listWithName.put("newsList",newsList);
+        listWithName.put("newsList",newsList);
 
         list.add(listWithName);
 
