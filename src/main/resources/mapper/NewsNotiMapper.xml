@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.subway.mapper.NewsNotiMapper">
+
+    <select id="getList" resultType="map">
+        select
+            *
+        from tbl_subway_newsnoti
+    </select>
+
+    <select id="getView" resultType="map">
+        select
+                *
+            from tbl_subway_newsnoti
+            where nno_id = #{ nno_id }
+    </select>
+
+
+</mapper>
