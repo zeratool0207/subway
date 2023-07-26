@@ -6,19 +6,20 @@
 
     <select id="getProductList" resultType="map">
         select
-            a.pro_id,
-            a.pro_name_kor,
-            a.pro_name_eng,
-            a.pro_contents,
-            a.pro_image_id,
-            a.pro_cate_id,
-            b.img_file_up_path
-        from tbl_subway_product a,
-             tbl_subway_image b,
-             tbl_subway_category c
-        where a.pro_image_id = b.img_id
-          and c.cat_id = a.pro_cate_id
+                a.pro_id,
+                a.pro_name_kor,
+                a.pro_name_eng,
+                a.pro_contents,
+                a.pro_image_id,
+                a.pro_cate_id,
+                b.img_file_up_path
+            from tbl_subway_product a,
+                 tbl_subway_image b,
+                 tbl_subway_category c
+            where a.pro_image_id = b.img_id
+              and c.cat_id = a.pro_cate_id
     </select>
+
 
     <select id="getProductCateList" resultType="map">
         select
@@ -36,6 +37,7 @@
               and c.cat_id = a.pro_cate_id
               and c.cat_up_cd = #{pro_cate_id}
     </select>
+
 
     <select id="getProductDetail" resultType="map">
         select
@@ -64,5 +66,23 @@
               and c.ing_id = a.pro_ingredient_id
               and a.pro_id = #{pro_id}
     </select>
+
+
+    <select id="getComposeDetail" resultType="map">
+        select
+                a.com_id,
+                a.com_name,
+                a.com_use_yn,
+                a.com_img_id,
+                a.com_prd_id,
+                b.img_file_name,
+                b.img_file_up_path
+            from tbl_subway_compose a,
+                 tbl_subway_image b
+            where a.com_prd_id = #{pro_id}
+              and a.com_img_id = b.img_id
+
+    </select>
+
 
 </mapper>

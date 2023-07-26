@@ -6,15 +6,35 @@
 
     <select id="getList" resultType="map">
         select
-            *
-        from tbl_subway_event
+                a.eve_id,
+                a.eve_name,
+                a.eve_contents,
+                a.eve_start_date,
+                a.eve_end_date,
+                a.eve_use_yn,
+                a.eve_image_id,
+                b.img_file_name,
+                b.img_file_up_path
+            from tbl_subway_event a,
+                 tbl_subway_image b
+            where a.eve_image_id = b.img_id
     </select>
 
     <select id="getView" resultType="map">
         select
-            *
-        from tbl_subway_event
-        where eve_id = #{ eve_id }
+                a.eve_id,
+                a.eve_name,
+                a.eve_contents,
+                a.eve_start_date,
+                a.eve_end_date,
+                a.eve_use_yn,
+                a.eve_image_id,
+                b.img_file_name,
+                b.img_file_up_path
+            from tbl_subway_event a,
+                 tbl_subway_image b
+            where a.eve_image_id = b.img_id
+              and a.eve_id = #{ eve_id }
     </select>
 
 

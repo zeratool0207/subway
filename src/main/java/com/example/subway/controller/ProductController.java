@@ -44,8 +44,11 @@ public class ProductController {
     @GetMapping("/api/prd/detail")
     public Map<String,Object> getProductDetail(@RequestParam int pro_id) {
         Map<String, Object> productMap = new HashMap<>();
+        List<Map<String, Object>> composeList = new ArrayList<>();
 
         productMap = productService.getProductDetail(pro_id);
+        composeList = productService.getComposeDetail(pro_id);
+        productMap.put("composeList", composeList);
         System.out.println("this is productMap ::" + productMap);
 
         return productMap;

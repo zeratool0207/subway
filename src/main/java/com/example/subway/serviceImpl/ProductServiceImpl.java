@@ -32,4 +32,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+    @Override
+    public List<Map<String, Object>> getComposeDetail(int pro_id) {
+        return productMapper.getComposeDetail(pro_id);
+    }
+
+
 }

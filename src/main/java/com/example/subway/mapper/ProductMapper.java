@@ -14,4 +14,6 @@ public interface ProductMapper {
 
     Map<String, Object> getProductDetail(int pro_id);
 
+    List<Map<String, Object>> getComposeDetail(int pro_id);
+
 }

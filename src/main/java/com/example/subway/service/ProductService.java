@@ -10,4 +10,7 @@ public interface ProductService {
     List<Map<String,Object>> getProductCateList(String pro_cate_id);
 
     Map<String,Object> getProductDetail(int pro_id);
+
+    List<Map<String, Object>> getComposeDetail(int pro_id);
+
 }
